@@ -1,0 +1,34 @@
+import os
+import random
+import time
+
+print("Welcome to 51")
+nameOne = input("Digite o nome do primeiro Player: ")
+nameTwo = input("Digite o nome do segundo Player: ")
+pontos = 0
+dadoOne = (1,2,3,4,5,6)
+dadoTwo = (2,3,4,5,6,7,8,9,10,11,12)
+ordemEscolha = (1,2)
+ordem = random.choice(ordemEscolha)
+while pontos <= 51:
+    if ordem % 2 == 0:
+        print("Agora é a vez de: " + nameTwo)
+    else:
+        print("Agora é a vez de: " + nameOne)
+    ordem = ordem + 1
+    escolha = input("Deseja um ou dois dados? ")
+    if escolha == "dois":
+        dd = random.choice(dadoTwo)
+    elif escolha == "um":
+        dd = random.choice(dadoOne)
+    print("O valor dos dados é: " + str(dd))
+    pontos = pontos + dd
+    print("Pontos totais: " + str(pontos))
+    if pontos == 51 and ordem == 1:
+        print(nameOne + " venceu! ")
+    elif pontos == 51 and ordem == 2:
+        print(nameTwo + " venceu! ")
+    elif pontos > 51 and ordem == 1:
+        print(nameOne + " estourou! " + nameTwo + " venceu!")
+    elif pontos > 51 and ordem == 2:
+        print(nameTwo + " estourou! " + nameOne + " venceu!")
